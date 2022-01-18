@@ -1,1 +1,33 @@
+#声明电影购票微服务的端口号
+server:
+  port: 8001
+
+#声明微服务的名称
+spring:
+  application:
+    name: microservice-movie
+#配置zipkin服务器
+  zipkin:
+    base-url: http://192.168.80.1:9041
+    sender:
+      type: web
+  #跟踪样本的采集率100%
+  sleuth:
+    sampler:
+      probability: 1
+
+#向eureka服务器注册
+eureka:
+  client:
+    #向eureka服务器注册
+    fetch-registry: true
+    #向eureka服务器索要信息
+    register-with-eureka: true
+    #声明eureka注册服务的url
+    service-url:
+      defaultZone: http://192.168.80.1:8888/eureka
+
+    #微服务的消费方与eureka服务器的约定
+    #每30秒从eureka服务器获得最新的信息
+    registry-fetch-interval-seconds: 30 #默认时间是30秒
 
