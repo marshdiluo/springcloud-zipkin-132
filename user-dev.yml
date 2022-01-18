@@ -25,10 +25,10 @@ spring:
   zipkin:
     base-url:http://192.168.80.1:9041
     sender:
-       type: web
+      type: web
   #跟踪样本采样率是100%
   sleuth:
-     sampler:
+    sampler:
       probability: 1
 
 #eureka客户端
